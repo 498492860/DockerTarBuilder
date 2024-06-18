@@ -1,0 +1,20 @@
+name: seach Image
+
+on:
+  workflow_dispatch:
+    inputs:
+      docker_image:
+        description: '请填写docker镜像名称'
+        required: true
+        default: 'alpine:latest'  # 设置默认的 Docker 镜像列表
+
+jobs:
+  pull_and_package:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: search Docker Image
+      run: docker search "${{ github.event.inputs.docker_image }}" --platform "linux/arm64"
