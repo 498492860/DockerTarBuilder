@@ -17,4 +17,4 @@ jobs:
       uses: actions/checkout@v4
 
     - name: search Docker Image
-      run: docker search "${{ github.event.inputs.docker_image }}" --platform "linux/arm64"
+      run: docker search "${{ github.event.inputs.docker_image }}"
